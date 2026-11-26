@@ -7,6 +7,7 @@ Each exercise uses the IMP language of the book. No additional Lean libraries ar
 | Session | Question | Read | Work | Compare afterward |
 | --- | --- | --- | --- | --- |
 | 01 | Which two rules justify the value of `x + 4`? | [Evaluation judgments](https://pl-semantics-textbook.moonlitwhale2.chatgpt.site/chapter-01/#ch01-s4) | [Exercise 01](Exercises/Session01.lean) | [Solution 01](Solutions/Session01.lean) |
+| 02 | Which state does the second assignment read? | [Sequencing](https://pl-semantics-textbook.moonlitwhale2.chatgpt.site/chapter-02/#ch02-s3) | [Exercise 02](Exercises/Session02.lean) | [Solution 02](Solutions/Session02.lean) |
 
 ## Working on a sheet
 
