@@ -1,0 +1,11 @@
+name = "pl-semantics-labs"
+version = "0.1.0"
+defaultTargets = ["Labs"]
+
+[[lean_lib]]
+name = "PLBook"
+globs = ["PLBook.IMP.+"]
+
+[[lean_lib]]
+name = "Labs"
+globs = ["Labs.+"]
