@@ -1,4 +1,5 @@
 FROM mcr.microsoft.com/devcontainers/base:ubuntu-24.04
+RUN apt-get update && apt-get install -y --no-install-recommends python3 && rm -rf /var/lib/apt/lists/*
 USER vscode
 ENV PATH="/home/vscode/.elan/bin:${PATH}"
 RUN curl --fail --show-error --silent --location https://elan.lean-lang.org/elan-init.sh -o /tmp/elan-init.sh \
