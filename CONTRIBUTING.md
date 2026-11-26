@@ -25,3 +25,14 @@ Keep each retained commit conventional (for example `feat(lab01): derive an addi
 Update a stale branch, recheck the tip, and use rebase-and-merge. Document changes to the
 shared semantics or merge policy in a decision issue. Publishing an exercise link in the
 book follows acceptance of the corresponding sheet.
+
+## Optional reading audit
+
+A maintainer can dispatch **Lab reading audit** in GitHub Actions to compare a
+worksheet, its worked proof and its reading. It stages at most one issue proposal
+for review. The Lean checks run independently on every PR.
+
+The workflow was compiled with gh-aw v1.2.2. After editing its Markdown source,
+run `gh aw compile lab-audit` and review the generated lockfile. A hosted audit
+uses an owner-configured `CODEX_API_KEY` or `OPENAI_API_KEY`. Enable that
+credential only when the owner elects to pay for a manual run.
