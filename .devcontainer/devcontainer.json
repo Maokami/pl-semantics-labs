@@ -1,0 +1,11 @@
+{
+  "name": "PL semantics workbook",
+  "build": { "dockerfile": "Dockerfile" },
+  "remoteUser": "vscode",
+  "postCreateCommand": "lake build",
+  "waitFor": "postCreateCommand",
+  "customizations": {
+    "vscode": { "extensions": ["leanprover.lean4"] },
+    "codespaces": { "openFiles": ["README.md"] }
+  }
+}

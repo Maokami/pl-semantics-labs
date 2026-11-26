@@ -10,6 +10,14 @@ Each exercise uses the IMP language of the book. No additional Lean libraries ar
 | 02 | Which state does the second assignment read? | [Sequencing](https://pl-semantics-textbook.moonlitwhale2.chatgpt.site/chapter-02/#ch02-s3) | [Exercise 02](Exercises/Session02.lean) | [Solution 02](Solutions/Session02.lean) |
 | 03 | Why must the intermediate states agree? | [Comparing two derivations](https://pl-semantics-textbook.moonlitwhale2.chatgpt.site/chapter-03/#ch03-s2) | [Exercise 03](Exercises/Session03.lean) | [Solution 03](Solutions/Session03.lean) |
 
+## Open the project in a browser
+
+[Open or resume your workspace](https://codespaces.new/Maokami/pl-semantics-labs?quickstart=1).
+GitHub opens a personal Codespace with the Lean extension, builds the shared modules,
+and opens this guide. Select **Exercise** for the current session in the table above.
+Use the file explorer to follow imports and the terminal to check the finished sheet.
+Stop the Codespace when finished. GitHub applies your account’s Codespaces allowance.
+
 ## Working on a sheet
 
 1. Install [Lean 4 and its editor support](https://lean-lang.org/install/). Open the repository root, the directory containing `lean-toolchain`.

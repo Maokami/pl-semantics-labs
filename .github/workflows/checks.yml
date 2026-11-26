@@ -32,3 +32,21 @@ jobs:
           if grep -Ev '^(feat|fix|docs|ci|test|refactor|chore|build)(\([[:alnum:]_-]+\))?!?: .+' "$RUNNER_TEMP/subjects"; then
             exit 1
           fi
+  browser-workspace:
+    name: Browser workspace
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Build and open the workbook as the editor user
+        run: |
+          docker build .devcontainer -t pl-workspace
+          docker run --rm -v "$PWD:/source:ro" pl-workspace bash -c '
+            set -eu
+            work=$(mktemp -d)
+            cp -R /source/. "$work"
+            cd "$work"
+            lake build
+            lake env lean Exercises/Session01.lean
+            python3 tools/check_labs.py'
