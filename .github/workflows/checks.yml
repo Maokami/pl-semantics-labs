@@ -1,0 +1,34 @@
+name: Workbook checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  workbook:
+    name: Lean workbook
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+      - uses: leanprover/lean-action@ba3fdfe5c4476c925da13bf11a005ddb47e47aee
+        with:
+          auto-config: 'false'
+          build: 'true'
+      - name: Verify sources and sheets
+        run: |
+          shasum -a 256 -c tools/upstream.sha256
+          python3 tools/starters.py
+          python3 tools/check_labs.py
+      - name: Check assigned readings
+        run: python3 tools/readings.py
+      - name: Check retained commit subjects
+        if: github.event_name == 'pull_request'
+        env:
+          BASE: ${{ github.event.pull_request.base.sha }}
+          TIP: ${{ github.event.pull_request.head.sha }}
+        run: |
+          git log --format=%s "$BASE..$TIP" > "$RUNNER_TEMP/subjects"
+          if grep -Ev '^(feat|fix|docs|ci|test|refactor|chore|build)(\([[:alnum:]_-]+\))?!?: .+' "$RUNNER_TEMP/subjects"; then
+            exit 1
+          fi
