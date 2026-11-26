@@ -26,13 +26,15 @@ Update a stale branch, recheck the tip, and use rebase-and-merge. Document chang
 shared semantics or merge policy in a decision issue. Publishing an exercise link in the
 book follows acceptance of the corresponding sheet.
 
-## Optional reading audit
+## Reading audit
 
-A maintainer can dispatch **Lab reading audit** in GitHub Actions to compare a
-worksheet, its worked proof and its reading. It stages at most one issue proposal
-for review. The Lean checks run independently on every PR.
+Lab reading audit checks for workbook changes twice a month, on the 1st and 16th
+at 02:17 UTC. A maintainer can also dispatch a run to revisit a reading or a
+changed textbook section. It stages at most one issue proposal in the run output.
+The Lean checks run independently on every PR.
 
-The workflow was compiled with gh-aw v1.2.2. After editing its Markdown source,
-run `gh aw compile lab-audit` and review the generated lockfile. A hosted audit
-uses an owner-configured `CODEX_API_KEY` or `OPENAI_API_KEY`. Enable that
-credential only when the owner elects to pay for a manual run.
+Set the repository Actions secret `ANTHROPIC_API_KEY` for the Claude Haiku audit.
+Without a key the preflight skips inference. Each main agent session has an
+eight-turn limit and a USD 0.50 CLI budget. Review the run summary and staged
+finding in Actions. Recompile the workflow with gh-aw v1.2.2 using
+`gh aw compile lab-audit` whenever its Markdown changes.
