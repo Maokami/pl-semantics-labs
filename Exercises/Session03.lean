@@ -19,8 +19,8 @@ theorem assignmentResult (h : cexec σ (.ASSIGN x e) τ) :
     τ = update x (aeval σ e) σ := by
   sorry
 
-/-- 2. Complete the sequence case. Place the cursor after the second `cases` to see
-`left` and `right`. Which one fits `ihLeft`? Use the equality it returns to identify
+/-- 2. Complete the sequence case. Place the cursor at the hole in the sequence branch.
+Inspect `left` and `right` in the infoview. Which one fits `ihLeft`? Use the equality it returns to identify
 the intermediate states. Then check the type of `ihRight` again. -/
 theorem deterministic (first : cexec σ c τ) (other : cexec σ c υ) : τ = υ := by
   -- Keeping υ general lets each induction hypothesis compare with a new final state.
